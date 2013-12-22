@@ -1,0 +1,21 @@
+
+number : 1
+
+status : inprogress
+
+type : Story/newFeature
+
+subject : Initiate payment request for obtain authority token
+
+description : When a user want to start a payment transaction, first we need
+ to obtain 'authority' code from Zarinpal web service. This 'authority'
+ token will be only valid for 15 minutes. This 'authority' token will also
+ needed for future transaction statue checks. For example we could check
+ if a transaction was successful for not.
+
+story point :
+
+comments : [
+  : "2013-Dec-21 story was told",
+  : "",
+]

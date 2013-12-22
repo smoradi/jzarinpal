@@ -1,0 +1,6 @@
+build.properties
+jzarinpal-server/src/main/java/mars/jzarinpal/server/BuildProps.java
+target
+.project
+.classpath
+.settings

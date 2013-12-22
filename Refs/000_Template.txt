@@ -1,0 +1,17 @@
+
+number :
+
+status : open
+
+type : /
+
+subject :
+
+description :
+
+story point :
+
+comments : [
+  : "",
+  : "",
+]

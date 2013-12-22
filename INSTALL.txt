@@ -1,0 +1,6 @@
+# From root of project execute following commands
+# Copies build.properties-template to build.properties
+ant
+# Copies properties from build.properties to BuildProps.java
+ant
+mvn clean package

@@ -1,0 +1,12 @@
+package mars.jzarinpal.server;
+
+/**
+ * @EDIT-WARNING-NOTE@
+ */
+public class BuildProps {
+
+	public static final String merchantID = "@MERCHANT-ID@";
+	public static final String serviceBaseUri = "@SERVICE-BASE-URI@";
+	public static final boolean isProdServer = Boolean.parseBoolean("@IS-PROD-SERVER@");
+
+}

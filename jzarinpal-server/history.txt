@@ -1,0 +1,4 @@
+# This file contains history of executed commands and other useful histories.
+
+# wsimport (used from OpenJdk7)
+wsimport -s src/main/java https://ir.zarinpal.com/pg/services/WebGate/wsdl
