@@ -15,7 +15,7 @@ import mars.jzarinpal.domain.constants.Paths;
 
 import org.junit.Test;
 
-public class PaymentRequestResourceTest extends ResourceTestCaseBase {
+public class PaymentResourceIntegrationTest extends ResourceTestCaseBase {
 
 	private final String amount = "1000";
 	public static String authorityToken = "is-not-set-yet";

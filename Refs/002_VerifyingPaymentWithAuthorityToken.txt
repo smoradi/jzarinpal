@@ -1,7 +1,7 @@
 
 number :2
 
-status : inprogress.
+status : inprogress..
 
 type : Story/newFeature
 

@@ -14,7 +14,7 @@ import mars.jzarinpal.domain.build.BuildProps;
 import mars.jzarinpal.domain.dto.PaymentRequestDto;
 import mars.jzarinpal.domain.dto.PaymentVerificationDto;
 
-public class PaymentRequestClientTest extends ClientTestCaseBase {
+public class PaymentClientIntegrationTest extends ClientTestCaseBase {
 
 	private final int amount = 1000;
 	private static String authorityToken = "is-not-set-yet";
