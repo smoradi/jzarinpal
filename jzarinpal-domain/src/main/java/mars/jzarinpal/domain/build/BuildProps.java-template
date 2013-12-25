@@ -1,4 +1,4 @@
-package mars.jzarinpal.server;
+package mars.jzarinpal.domain.build;
 
 /**
  * @EDIT-WARNING-NOTE@
@@ -6,7 +6,8 @@ package mars.jzarinpal.server;
 public class BuildProps {
 
 	public static final String merchantID = "@MERCHANT-ID@";
+	public static final boolean isProdServer = @IS-PROD-SERVER@;
 	public static final String serviceBaseUri = "@SERVICE-BASE-URI@";
-	public static final boolean isProdServer = Boolean.parseBoolean("@IS-PROD-SERVER@");
+	public static final String defaultCallbackUri = "@DEFAULT-CALLBACK-URI@";
 
 }

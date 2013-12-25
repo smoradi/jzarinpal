@@ -1,8 +1,12 @@
-# Service base URI
-serviceBaseUri=http://127.0.0.1:9998
 
 # Merchant Id
 merchantID=00000000-0000-0000-0000-000000000000
 
 # Set to 'true' for production server otherwise set to 'false'
 isProdServer=false
+
+# Service base URI
+serviceBaseUri=http://127.0.0.1:9998
+
+# Default callback URI
+defaultCallbackUri=http://CHANGE.ME/payment/callback/zarinpal

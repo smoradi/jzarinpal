@@ -1,7 +1,7 @@
 
 number : 1
 
-status : inprogress
+status : inprogress.
 
 type : Story/newFeature
 
@@ -13,7 +13,7 @@ description : When a user want to start a payment transaction, first we need
  needed for future transaction statue checks. For example we could check
  if a transaction was successful for not.
 
-story point :
+story point : 1 + 0.5 = 1.5
 
 comments : [
   : "2013-Dec-21 story was told",

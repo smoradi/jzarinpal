@@ -9,7 +9,7 @@ import javax.ws.rs.core.Form;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import mars.jzarinpal.server.BuildProps;
+import mars.jzarinpal.domain.build.BuildProps;
 
 import org.junit.Test;
 
@@ -19,12 +19,12 @@ public class PaymentRequestResourceTest extends ResourceTestCaseBase {
 	public void testPaymentRequesstGet() {
 		Form formData = new Form("amount", "1000")
 				.param("description", "description")
-				.param("callbackURL", BuildProps.serviceBaseUri + "/callbackTest");
+				.param("callbackURL", BuildProps.defaultCallbackUri);
 		Entity<Form> entity = Entity.form(formData);
 		Response response = target.path("/paymentrequest").request().post(entity);
 
 		if (BuildProps.isProdServer) {
-			assertEquals(Status.OK.getStatusCode(), response.getStatus());
+			assertEquals(Status.CREATED.getStatusCode(), response.getStatus());
 			String authority = response.readEntity(String.class);
 			assertTrue(authority.trim().length() > 0);
 			System.out.println(f("###########Temporary log##### authority[%s]", authority));

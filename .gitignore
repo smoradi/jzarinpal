@@ -1,5 +1,5 @@
 build.properties
-jzarinpal-server/src/main/java/mars/jzarinpal/server/BuildProps.java
+jzarinpal-domain/src/main/java/mars/jzarinpal/domain/build/BuildProps.java
 target
 .project
 .classpath

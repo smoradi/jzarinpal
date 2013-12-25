@@ -4,14 +4,14 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
-import mars.jzarinpal.server.BuildProps;
+import mars.jzarinpal.domain.build.BuildProps;
 import mars.jzarinpal.server.Main;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-public class ResourceTestCaseBase {
+public abstract class ResourceTestCaseBase {
 
 	private static HttpServer server;
 	protected static WebTarget target;

@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# jZarinpal server startup script (FreeBSD rc.d)
+#-------------------------------------------
+#
+
+# PROVIDE: jzarinpal_server
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+JZARINPAL_DIR=/usr/ws/jzarinpal/jzarinpal-server
+USER=webreader	# a non root user of your unix server
+JSVC=/opt/ws/commons-daemon/src/native/unix/jsvc	# see jsvc installation[1]
+JAVA_HOME=/usr/local/openjdk6
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+CLASS_PATH="${JZARINPAL_DIR}/target/classes:${JZARINPAL_DIR}/target/dependency/*"
+CLASS=mars.jzarinpal.server.Daemon
+PID=/tmp/jzarinpal-server-jsvc.pid
+LOG_OUT=/tmp/jzarinpal-server-jsvc.out
+LOG_ERR=/tmp/jzarinpal-server-jsvc.err
+
+
+. /etc/rc.subr
+
+name="jzarinpal_server"
+rcvar=jzarinpal_server_enable
+
+load_rc_config $name
+: ${jzarinpal_server_enable:=no}
+
+start_postcmd="${name}_start"
+stop_cmd="${name}_stop"
+
+do_exec()
+{
+	$JSVC -home "$JAVA_HOME" -cp $CLASS_PATH -user $USER -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS
+}
+
+inprogress_stop_dots()
+{
+while :;
+	do
+		sleep 1
+		if [ -f "$PID" ]; then
+			printf "."
+		else
+			break
+		fi
+done
+}
+
+jzarinpal_server_start()
+{
+	do_exec;
+}
+
+jzarinpal_server_stop()
+{
+	inprogress_stop_dots &
+	do_exec "-stop";
+}
+
+run_rc_command "$1"
+
+
+# [1] jsvc installation steps:
+#  svn checkout http://svn.apache.org/repos/asf/commons/proper/daemon/trunk common-daemon
+#  cd src/native/unix
+#  sh support/buildconf.sh
+#  ./configure --with-java=/usr/local/openjdk6
+#  make
+#  ./jsvc -help
+#  export JAVA_HOME #If message says JAVA_HOME not found

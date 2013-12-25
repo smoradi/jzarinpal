@@ -1,14 +1,14 @@
-package mars.jzarinpal.server.dto;
+package mars.jzarinpal.domain;
 
 import javax.ws.rs.core.Response.Status;
 
-public enum StatusZarin {
+public enum ZarinStatus {
 	BAD_REQUEST(-1), BAD_GATEWAY(-2), EXPECTATION_FAILED(-3),
 	SERVICE_UNAVAILABLE(-4), NOT_FOUND(-11), NOT_FOUND_PAYMENT(-21),
 	NOT_ACCEPTABLE(-22), CONFILICT(-33), GONE(-54), CREATED(100),
 	OK(101);
 
-	public static StatusZarin fromCode(int code) {
+	public static ZarinStatus fromCode(int code) {
 		switch (code) {
 		case -1:				// Invalid Request
 			return BAD_REQUEST;
@@ -37,7 +37,7 @@ public enum StatusZarin {
 		}
 	}
 
-	private StatusZarin(int code) {
+	private ZarinStatus(int code) {
 		this.code = code;
 	}
 

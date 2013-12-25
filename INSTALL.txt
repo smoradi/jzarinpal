@@ -3,4 +3,4 @@
 ant
 # Copies properties from build.properties to BuildProps.java
 ant
-mvn clean package
+mvn clean install
