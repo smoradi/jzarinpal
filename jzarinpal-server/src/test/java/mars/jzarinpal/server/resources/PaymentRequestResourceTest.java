@@ -52,10 +52,10 @@ public class PaymentRequestResourceTest extends ResourceTestCaseBase {
 		Response response = target.path(Paths.paymentverification + dynamicPath).request().get(Response.class);
 
 		if (BuildProps.isProdServer) {
-			assertEquals(Status.OK.getStatusCode(), response.getStatus());
+			assertEquals(Status.NOT_FOUND.getStatusCode(), response.getStatus());
 			Long refId = response.readEntity(Long.class);
 			System.out.println(f("##############Temporary log######### refId[%s]", refId));
-			assertFalse("RefId should not be zero", new Long(0).equals(refId));
+			assertTrue("RefId should be still zero", new Long(0).equals(refId));
 		} else {
 			assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
 			assertEquals("RefId should be zero", new Long(0), response.readEntity(Long.class));

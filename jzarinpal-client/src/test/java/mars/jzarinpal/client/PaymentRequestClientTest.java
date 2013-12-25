@@ -45,10 +45,14 @@ public class PaymentRequestClientTest extends ClientTestCaseBase {
 		PaymentVerificationDto dto = new PaymentVerificationDto(amount, authorityToken);
 		try {
 			Long refId = client.paymentVerification(dto);
-			assertTrue("RefId should not be zero", !new Long(0l).equals(refId));
+			assertTrue("RefId should be still zero", new Long(0l).equals(refId));
 		} catch (UnexpectedStatusCodeException e) {
-			assertTrue("We should see exception in development mode", BuildProps.isDevServer);
-			assertEquals("Status code shold be 400 is dev mode", Status.BAD_REQUEST.getStatusCode(), e.getStatusCode());
+			if (e.getStatusCode() == Status.NOT_FOUND.getStatusCode()) {
+				// It happens also production mode
+			} else {
+				assertTrue("We should see exception in development mode", BuildProps.isDevServer);
+				assertEquals("Status code shold be 400 is dev mode", Status.BAD_REQUEST.getStatusCode(), e.getStatusCode());
+			}
 		}
 	}
 
