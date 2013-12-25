@@ -16,7 +16,7 @@ public class PaymentRequestClientImpl extends ClientBase {
 		super(webTarget);
 	}
 
-	public String paymentRequest(PaymentRequestDto dto) throws WrongStatusCodeException {
+	public String paymentRequest(PaymentRequestDto dto) throws UnexpectedStatusCodeException {
 		Form form = new Form(CS.amount, dto.amount+"")
 				.param(CS.description, dto.description)
 				.param(CS.callbackURL, dto.callbackURL)
@@ -27,7 +27,7 @@ public class PaymentRequestClientImpl extends ClientBase {
 		if (response.getStatus() == Status.CREATED.getStatusCode()) {
 			return response.readEntity(String.class);
 		}
-		throw new WrongStatusCodeException(response.getStatus());
+		throw new UnexpectedStatusCodeException(response.getStatus());
 	}
 
 }

@@ -1,0 +1,19 @@
+
+number :2
+
+status : inprogress
+
+type : Story/newFeature
+
+subject : Verifying payment with authority token
+
+description : After having 'authority' token (Story #1), now we could check
+ a payment of Zarinpal.com with 'amount' and 'authority' token. This story
+ will cover this verification step.
+
+story point :
+
+comments : [
+  : "2013-Dec-25 story was told",
+  : "",
+]

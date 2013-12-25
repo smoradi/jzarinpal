@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<wsdl:definitions
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:s="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://zarinpal.com/"
+    xmlns:tns="http://zarinpal.com/"
+    name="PaymentGatewayImplementationService"
+>
+
+<wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://zarinpal.com/">
+        <s:element name="PaymentRequest">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="MerchantID" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+                <s:element minOccurs="1" maxOccurs="1" name="Description" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Email" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Mobile" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="CallbackURL" type="s:string" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="PaymentRequestResponse">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+                <s:element minOccurs="1" maxOccurs="1" name="Authority" type="s:string" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="PaymentRequestWithExtra">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="MerchantID" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+                <s:element minOccurs="1" maxOccurs="1" name="Description" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="AdditionalData" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Email" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Mobile" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="CallbackURL" type="s:string" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="PaymentRequestWithExtraResponse">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+                <s:element minOccurs="1" maxOccurs="1" name="Authority" type="s:string" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="PaymentVerification">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="MerchantID" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Authority" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="PaymentVerificationResponse">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+                <s:element minOccurs="1" maxOccurs="1" name="RefID" type="s:long" />
+            </s:sequence></s:complexType>
+        </s:element>
+		<s:element name="PaymentVerificationWithExtra">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="MerchantID" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Authority" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="PaymentVerificationWithExtraResponse">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+                <s:element minOccurs="1" maxOccurs="1" name="RefID" type="s:long" />
+                <s:element minOccurs="1" maxOccurs="1" name="ExtraDetail" type="s:string" />
+            </s:sequence></s:complexType>
+        </s:element>
+    </s:schema>
+</wsdl:types>
+
+<wsdl:message name="PaymentRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentRequest" />
+</wsdl:message>
+<wsdl:message name="PaymentRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentRequestResponse" />
+</wsdl:message>
+
+<wsdl:message name="PaymentRequestWithExtraSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentRequestWithExtra" />
+</wsdl:message>
+<wsdl:message name="PaymentRequestWithExtraSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentRequestWithExtraResponse" />
+</wsdl:message>
+
+<wsdl:message name="PaymentVerificationSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentVerification" />
+</wsdl:message>
+<wsdl:message name="PaymentVerificationSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentVerificationResponse" />
+</wsdl:message>
+
+<wsdl:message name="PaymentVerificationWithExtraSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentVerificationWithExtra" />
+</wsdl:message>
+<wsdl:message name="PaymentVerificationWithExtraSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentVerificationWithExtraResponse" />
+</wsdl:message>
+
+<wsdl:portType name="PaymentGatewayImplementationServicePortType">
+    <wsdl:operation name="PaymentRequest">
+        <wsdl:input message="tns:PaymentRequestSoapIn" />
+        <wsdl:output message="tns:PaymentRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentRequestWithExtra">
+        <wsdl:input message="tns:PaymentRequestWithExtraSoapIn" />
+        <wsdl:output message="tns:PaymentRequestWithExtraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentVerification">
+        <wsdl:input message="tns:PaymentVerificationSoapIn" />
+        <wsdl:output message="tns:PaymentVerificationSoapOut" />
+    </wsdl:operation>
+	<wsdl:operation name="PaymentVerificationWithExtra">
+        <wsdl:input message="tns:PaymentVerificationWithExtraSoapIn" />
+        <wsdl:output message="tns:PaymentVerificationWithExtraSoapOut" />
+    </wsdl:operation>
+</wsdl:portType>
+
+<wsdl:binding name="PaymentGatewayImplementationServiceBinding" type="tns:PaymentGatewayImplementationServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PaymentRequest">
+        <soap:operation soapAction="https://ir.zarinpal.com/pg/services/WebGate/service#PaymentRequest" style="document" />
+        <wsdl:input><soap:body use="literal" /></wsdl:input>
+        <wsdl:output><soap:body use="literal" /></wsdl:output>
+        <wsdl:documentation>Payment request session creation should be done by using this method.</wsdl:documentation>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentRequestWithExtra">
+        <soap:operation soapAction="https://ir.zarinpal.com/pg/services/WebGate/service#PaymentRequestWithExtra" style="document" />
+        <wsdl:input><soap:body use="literal" /></wsdl:input>
+        <wsdl:output><soap:body use="literal" /></wsdl:output>
+        <wsdl:documentation>Payment request session creation with additional data like wages and more should be done by using this method.</wsdl:documentation>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentVerification">
+        <soap:operation soapAction="https://ir.zarinpal.com/pg/services/WebGate/service#PaymentVerification" style="document" />
+        <wsdl:input><soap:body use="literal" /></wsdl:input>
+        <wsdl:output><soap:body use="literal" /></wsdl:output>
+        <wsdl:documentation>Payment verification should be done by using this method.</wsdl:documentation>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentVerificationWithExtra">
+        <soap:operation soapAction="https://ir.zarinpal.com/pg/services/WebGate/service#PaymentVerificationWithExtra" style="document" />
+        <wsdl:input><soap:body use="literal" /></wsdl:input>
+        <wsdl:output><soap:body use="literal" /></wsdl:output>
+        <wsdl:documentation>Payment verification with additional data should be done by using this method.</wsdl:documentation>
+    </wsdl:operation>
+</wsdl:binding>
+
+<wsdl:service name="PaymentGatewayImplementationService">
+    <wsdl:port name="PaymentGatewayImplementationServicePort" binding="tns:PaymentGatewayImplementationServiceBinding">
+        <soap:address location="https://ir.zarinpal.com/pg/services/WebGate/service" />
+    </wsdl:port>
+</wsdl:service>
+
+</wsdl:definitions>

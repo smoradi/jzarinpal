@@ -1,8 +1,7 @@
 package mars.jzarinpal.server.resources;
 
 import javax.ws.rs.BeanParam;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -15,25 +14,24 @@ import com.zarinpal.PaymentGatewayImplementationServicePortType;
 import mars.jzarinpal.domain.ZarinStatus;
 import mars.jzarinpal.domain.build.BuildProps;
 import mars.jzarinpal.domain.constants.Paths;
-import mars.jzarinpal.domain.dto.PaymentRequestDto;
+import mars.jzarinpal.domain.dto.PaymentVerificationDto;
 
-@Path(Paths.paymentrequest)
-public class PaymentRequestResource {
+@Path(Paths.paymentverification)
+public class PaymentVerificationResource {
 
 	private final PaymentGatewayImplementationService serviceImpl = new PaymentGatewayImplementationService();
 	private final PaymentGatewayImplementationServicePortType service = serviceImpl.getPaymentGatewayImplementationServicePort();
 
-	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@GET
+	@Path(Paths.$amount_$authority)
 	@Produces(MediaType.TEXT_PLAIN)
-	public Response paymentRequest(@BeanParam PaymentRequestDto dto) {
+	public Response paymentVerification(@BeanParam PaymentVerificationDto dto) {
 		Holder<Integer> status = new Holder<Integer>();
-		Holder<String> authority = new Holder<String>();
-		service.paymentRequest(BuildProps.merchantID, dto.getAmount(),
-				dto.getDescription(), dto.getEmail(), dto.getEmail(),
-				dto.getCallbackUrlOrDefault(), status, authority);
+		Holder<Long> refID = new Holder<Long>();
+		service.paymentVerification(BuildProps.merchantID,
+				dto.getAuthority(), dto.getAmount(), status, refID);
 		return Response.status(ZarinStatus.fromCode(status.value).getStatus())
-				.entity(authority.value).build();
+				.entity(refID.value).build();
 	}
 
 }

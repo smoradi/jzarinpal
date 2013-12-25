@@ -7,6 +7,7 @@ public class BuildProps {
 
 	public static final String merchantID = "@MERCHANT-ID@";
 	public static final boolean isProdServer = @IS-PROD-SERVER@;
+	public static final boolean isDevServer = !isProdServer;
 	public static final String serviceBaseUri = "@SERVICE-BASE-URI@";
 	public static final String defaultCallbackUri = "@DEFAULT-CALLBACK-URI@";
 

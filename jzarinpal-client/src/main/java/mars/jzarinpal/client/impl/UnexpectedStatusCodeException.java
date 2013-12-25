@@ -1,11 +1,11 @@
 package mars.jzarinpal.client.impl;
 
-public class WrongStatusCodeException extends Exception {
+public class UnexpectedStatusCodeException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	private final int statusCode;
 
-	public WrongStatusCodeException(int status) {
+	public UnexpectedStatusCodeException(int status) {
 		statusCode = status;
 	}
 

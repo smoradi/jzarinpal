@@ -9,12 +9,16 @@ public class PaymentRequestDto {
 
 	@FormParam(CS.amount)
 	public int amount;
+
 	@FormParam(CS.description)
 	public String description;
+
 	@FormParam(CS.callbackURL)
 	public String callbackURL;
+
 	@FormParam(CS.email)
 	public String email;
+
 	@FormParam(CS.mobile)
 	public String mobile;
 
