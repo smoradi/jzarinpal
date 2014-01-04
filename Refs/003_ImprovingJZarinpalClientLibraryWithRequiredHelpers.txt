@@ -1,0 +1,19 @@
+
+number :3
+
+status : inprogress
+
+type : Story/Improvement
+
+subject : Improving JZarinpal-client library with required helpers
+
+description : It seems jzarinpal-client has enough functionality for to be
+ tested in other projects. Under this issue title, we want to provide
+ required helpers and functinality as we actually using this library.
+
+story point : 1 = 1
+
+comments : [
+  : "2014-01-04 first revision committed",
+  : "",
+]

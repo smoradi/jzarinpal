@@ -3,23 +3,23 @@ package mars.jzarinpal.domain.dto;
 import javax.ws.rs.FormParam;
 
 import mars.jzarinpal.domain.build.BuildProps;
-import mars.jzarinpal.domain.constants.CS;
+import mars.jzarinpal.domain.constants.Constants;
 
 public class PaymentRequestDto {
 
-	@FormParam(CS.amount)
+	@FormParam(Constants.amount)
 	public int amount;
 
-	@FormParam(CS.description)
+	@FormParam(Constants.description)
 	public String description;
 
-	@FormParam(CS.callbackURL)
+	@FormParam(Constants.callbackURL)
 	public String callbackURL;
 
-	@FormParam(CS.email)
+	@FormParam(Constants.email)
 	public String email;
 
-	@FormParam(CS.mobile)
+	@FormParam(Constants.mobile)
 	public String mobile;
 
 	public PaymentRequestDto() {

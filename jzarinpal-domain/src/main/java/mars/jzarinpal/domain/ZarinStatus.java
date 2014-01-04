@@ -8,6 +8,13 @@ public enum ZarinStatus {
 	NOT_ACCEPTABLE(-22), CONFILICT(-33), GONE(-54), CREATED(100),
 	OK(101);
 
+	/**
+	 * This method is useful for initializing ZarinStatus
+	 * from received status code from Zarinpal web service.
+	 *
+	 * @param code		the status code from Zarinpal web service
+	 * @return
+	 */
 	public static ZarinStatus fromCode(int code) {
 		switch (code) {
 		case -1:				// Invalid Request
@@ -71,6 +78,42 @@ return Status.GONE;
 return Status.CREATED;
 		case  OK:
 return Status.OK;
+		default:
+			return null;
+		}
+	}
+
+	/**
+	 * This method is useful for initializing ZarinStatus
+	 * from received HTTP status code from jzarinpal-client library.
+	 *
+	 * @param statusCode	the HTTP status code from jzarinpal-client library
+	 * @return
+	 */
+	public static ZarinStatus fromHttpStatusCode(int statusCode) {
+		switch(statusCode) {
+		case 200:
+			return OK;
+		case 201:
+			return CREATED;
+		case 400:
+			return BAD_REQUEST;
+		case 404:
+			return NOT_FOUND;
+		case 406:
+			return NOT_ACCEPTABLE;
+		case 409:
+			return CONFILICT;
+		case 410:
+			return GONE;
+		case 417:
+			return EXPECTATION_FAILED;
+		case 500:
+			return SERVICE_UNAVAILABLE;
+		case 502:
+			return BAD_GATEWAY;
+		case 503:
+			return SERVICE_UNAVAILABLE;
 		default:
 			return null;
 		}

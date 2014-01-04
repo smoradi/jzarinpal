@@ -10,5 +10,6 @@ public class BuildProps {
 	public static final boolean isDevServer = !isProdServer;
 	public static final String serviceBaseUri = "@SERVICE-BASE-URI@";
 	public static final String defaultCallbackUri = "@DEFAULT-CALLBACK-URI@";
+	public static final String zarinpalStartPayUri = "@ZARINPAL-START-PAY-URI@";
 
 }

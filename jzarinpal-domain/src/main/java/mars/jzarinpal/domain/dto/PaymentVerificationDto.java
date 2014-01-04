@@ -2,14 +2,14 @@ package mars.jzarinpal.domain.dto;
 
 import javax.ws.rs.PathParam;
 
-import mars.jzarinpal.domain.constants.CS;
+import mars.jzarinpal.domain.constants.Constants;
 
 public class PaymentVerificationDto {
 
-	@PathParam(CS.amount)
+	@PathParam(Constants.amount)
 	public int amount;
 
-	@PathParam(CS.authority)
+	@PathParam(Constants.authority)
 	public String authority;
 
 	public PaymentVerificationDto() {

@@ -6,8 +6,8 @@ import mars.jzarinpal.domain.dto.PaymentVerificationDto;
 
 public interface JZarinpalClient {
 
-	public String paymentRequest(PaymentRequestDto dto) throws UnexpectedStatusCodeException;
+	public String paymentRequest(PaymentRequestDto paymentRequestDto) throws UnexpectedStatusCodeException;
 
-	public Long paymentVerification(PaymentVerificationDto dto) throws UnexpectedStatusCodeException;
+	public Long paymentVerification(PaymentVerificationDto paymentVerificationDto) throws UnexpectedStatusCodeException;
 
 }

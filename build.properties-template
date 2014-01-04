@@ -10,3 +10,6 @@ serviceBaseUri=http://127.0.0.1:9998
 
 # Default callback URI
 defaultCallbackUri=http://CHANGE.ME/payment/callback/zarinpal
+
+# Zarinpal start pay URI
+zarinpalStartPayUri=https://www.zarinpal.com/pg/StartPay

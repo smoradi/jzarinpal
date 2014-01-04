@@ -2,3 +2,9 @@
 
 # wsimport (used from OpenJdk7)
 wsimport -s src/main/java https://ir.zarinpal.com/pg/services/WebGate/wsdl
+
+# link jzarinpal_server daemon
+ln -s /usr/ws/jzarinpal/jzarinpal-server/jzarinpal_server_freebsd_daemon /usr/local/etc/rc.d/jzarinpal_server
+
+# vi /etc/rc.conf && add following line
+jzarinpal_server_enable="YES"

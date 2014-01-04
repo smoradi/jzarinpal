@@ -27,6 +27,8 @@
       token="@SERVICE-BASE-URI@" value="${serviceBaseUri}"/>
   <replace file="${BuildPropsDotJava}"
       token="@DEFAULT-CALLBACK-URI@" value="${defaultCallbackUri}"/>
+  <replace file="${BuildPropsDotJava}"
+      token="@ZARINPAL-START-PAY-URI@" value="${zarinpalStartPayUri}"/>
  </target>
 
  <target name="checkBuildDotPropertiesExists">

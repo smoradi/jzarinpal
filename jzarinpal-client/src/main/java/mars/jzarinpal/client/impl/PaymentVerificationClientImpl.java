@@ -18,7 +18,8 @@ public class PaymentVerificationClientImpl extends ClientBase {
 				Paths.paymentverification, dto.getAmount(), dto.getAuthority());
 
 		Response response = this.webTarget.path(paymentVerificationPath).request().get(Response.class);
-		if (response.getStatus() == Status.OK.getStatusCode()) {
+		if (response.getStatus() == Status.OK.getStatusCode() ||
+			response.getStatus() == Status.CREATED.getStatusCode()) {
 			return response.readEntity(Long.class);
 		}
 		throw new UnexpectedStatusCodeException(response.getStatus());

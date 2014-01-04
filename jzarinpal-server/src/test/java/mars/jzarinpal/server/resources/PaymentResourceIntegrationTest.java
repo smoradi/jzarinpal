@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import mars.jzarinpal.domain.build.BuildProps;
-import mars.jzarinpal.domain.constants.CS;
+import mars.jzarinpal.domain.constants.Constants;
 import mars.jzarinpal.domain.constants.Paths;
 
 import org.junit.Test;
@@ -22,9 +22,9 @@ public class PaymentResourceIntegrationTest extends ResourceTestCaseBase {
 
 	@Test
 	public void testObtaingPaymentToken() {
-		Form formData = new Form(CS.amount, amount)
-				.param(CS.description, "description")
-				.param(CS.callbackURL, BuildProps.defaultCallbackUri);
+		Form formData = new Form(Constants.amount, amount)
+				.param(Constants.description, "description")
+				.param(Constants.callbackURL, BuildProps.defaultCallbackUri);
 		Entity<Form> entity = Entity.form(formData);
 		Response response = target.path(Paths.paymentrequest).request().post(entity);
 
