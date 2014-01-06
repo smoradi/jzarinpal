@@ -5,7 +5,7 @@ import javax.ws.rs.core.Response.Status;
 public enum ZarinStatus {
 	BAD_REQUEST(-1), BAD_GATEWAY(-2), EXPECTATION_FAILED(-3),
 	SERVICE_UNAVAILABLE(-4), NOT_FOUND(-11), NOT_FOUND_PAYMENT(-21),
-	NOT_ACCEPTABLE(-22), CONFILICT(-33), GONE(-54), CREATED(100),
+	NOT_ACCEPTABLE(-22), CONFLICT(-33), GONE(-54), CREATED(100),
 	OK(101);
 
 	/**
@@ -32,7 +32,7 @@ public enum ZarinStatus {
 		case -22:				// Result was failure
 			return NOT_ACCEPTABLE;
 		case -33:				// Amount was not matched
-			return CONFILICT;
+			return CONFLICT;
 		case -54:				// Result was archived
 			return GONE;
 		case 100:				// Result was successful (first time)
@@ -70,7 +70,7 @@ return Status.NOT_FOUND;
 return Status.NOT_FOUND;
 		case  NOT_ACCEPTABLE:
 return Status.NOT_ACCEPTABLE;
-		case  CONFILICT:
+		case  CONFLICT:
 return Status.CONFLICT;
 		case  GONE:
 return Status.GONE;
@@ -103,7 +103,7 @@ return Status.OK;
 		case 406:
 			return NOT_ACCEPTABLE;
 		case 409:
-			return CONFILICT;
+			return CONFLICT;
 		case 410:
 			return GONE;
 		case 417:
@@ -114,6 +114,35 @@ return Status.OK;
 			return BAD_GATEWAY;
 		case 503:
 			return SERVICE_UNAVAILABLE;
+		default:
+			return null;
+		}
+	}
+
+	public String message() {
+		switch (this) {
+		case  BAD_REQUEST:
+			return "request.is.incorrect";
+		case  BAD_GATEWAY:
+			return "gateway.is.incorrect";
+		case  EXPECTATION_FAILED:
+			return "amount.is.not.enough";
+		case  SERVICE_UNAVAILABLE:
+			return "service.is.not.available";
+		case  NOT_FOUND:
+			return "request.not.found";
+		case  NOT_FOUND_PAYMENT:
+			return "payment.not.found";
+		case  NOT_ACCEPTABLE:
+			return "payment.not.acceptable";
+		case  CONFLICT:
+			return "payment.has.conflict";
+		case  GONE:
+			return "payment.archived";
+		case  CREATED:
+			return "payment.created";
+		case  OK:
+			return "payment.is.ok";
 		default:
 			return null;
 		}

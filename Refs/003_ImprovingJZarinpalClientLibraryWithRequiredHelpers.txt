@@ -1,7 +1,7 @@
 
 number :3
 
-status : inprogress
+status : inprogress.
 
 type : Story/Improvement
 
