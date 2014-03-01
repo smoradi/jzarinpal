@@ -10,7 +10,7 @@ for example for receiving new authority code, you could use following form:
 </form>
 
 and you only receive authority code if success.
-and you have HTML status code for finding the cause of failure.
+and you have HTTP status code for finding the cause of failure.
 
 
 One module of this application is serving RESTful resources(jzarinpal-server)

@@ -14,7 +14,7 @@
  </target>
 
  <target name="copyConfig" depends="checkProp">
-  <!-- Copy log4j.xml-->
+  <!-- Copy BuildProps.java-->
   <copy file="${BuildPropsDotJava}-template"
       tofile="${BuildPropsDotJava}" overwrite="true" />
   <replace file="${BuildPropsDotJava}"
