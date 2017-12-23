@@ -18,8 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Status" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="Authority" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="MerchantID" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,55 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "status",
-    "authority"
+    "merchantID"
 })
-@XmlRootElement(name = "PaymentRequestResponse")
-public class PaymentRequestResponse {
+@XmlRootElement(name = "GetUnverifiedTransactions")
+public class GetUnverifiedTransactions {
 
-    @XmlElement(name = "Status")
-    protected int status;
-    @XmlElement(name = "Authority", required = true)
-    protected String authority;
+    @XmlElement(name = "MerchantID", required = true)
+    protected String merchantID;
 
     /**
-     * Gets the value of the status property.
-     * 
-     */
-    public int getStatus() {
-        return status;
-    }
-
-    /**
-     * Sets the value of the status property.
-     * 
-     */
-    public void setStatus(int value) {
-        this.status = value;
-    }
-
-    /**
-     * Gets the value of the authority property.
+     * Gets the value of the merchantID property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAuthority() {
-        return authority;
+    public String getMerchantID() {
+        return merchantID;
     }
 
     /**
-     * Sets the value of the authority property.
+     * Sets the value of the merchantID property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAuthority(String value) {
-        this.authority = value;
+    public void setMerchantID(String value) {
+        this.merchantID = value;
     }
 
 }

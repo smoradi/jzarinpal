@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -47,7 +47,7 @@ public class PaymentVerificationWithExtraResponse {
 
     /**
      * Gets the value of the status property.
-     *
+     * 
      */
     public int getStatus() {
         return status;
@@ -55,7 +55,7 @@ public class PaymentVerificationWithExtraResponse {
 
     /**
      * Sets the value of the status property.
-     *
+     * 
      */
     public void setStatus(int value) {
         this.status = value;
@@ -63,7 +63,7 @@ public class PaymentVerificationWithExtraResponse {
 
     /**
      * Gets the value of the refID property.
-     *
+     * 
      */
     public long getRefID() {
         return refID;
@@ -71,7 +71,7 @@ public class PaymentVerificationWithExtraResponse {
 
     /**
      * Sets the value of the refID property.
-     *
+     * 
      */
     public void setRefID(long value) {
         this.refID = value;
@@ -79,11 +79,11 @@ public class PaymentVerificationWithExtraResponse {
 
     /**
      * Gets the value of the extraDetail property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getExtraDetail() {
         return extraDetail;
@@ -91,11 +91,11 @@ public class PaymentVerificationWithExtraResponse {
 
     /**
      * Sets the value of the extraDetail property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setExtraDetail(String value) {
         this.extraDetail = value;

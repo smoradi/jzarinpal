@@ -18,8 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Status" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="MerchantID" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Authority" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="ExpireIn" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,31 +31,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "status",
-    "authority"
+    "merchantID",
+    "authority",
+    "expireIn"
 })
-@XmlRootElement(name = "PaymentRequestResponse")
-public class PaymentRequestResponse {
+@XmlRootElement(name = "RefreshAuthority")
+public class RefreshAuthority {
 
-    @XmlElement(name = "Status")
-    protected int status;
+    @XmlElement(name = "MerchantID", required = true)
+    protected String merchantID;
     @XmlElement(name = "Authority", required = true)
     protected String authority;
+    @XmlElement(name = "ExpireIn")
+    protected int expireIn;
 
     /**
-     * Gets the value of the status property.
+     * Gets the value of the merchantID property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getStatus() {
-        return status;
+    public String getMerchantID() {
+        return merchantID;
     }
 
     /**
-     * Sets the value of the status property.
+     * Sets the value of the merchantID property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setStatus(int value) {
-        this.status = value;
+    public void setMerchantID(String value) {
+        this.merchantID = value;
     }
 
     /**
@@ -79,6 +91,22 @@ public class PaymentRequestResponse {
      */
     public void setAuthority(String value) {
         this.authority = value;
+    }
+
+    /**
+     * Gets the value of the expireIn property.
+     * 
+     */
+    public int getExpireIn() {
+        return expireIn;
+    }
+
+    /**
+     * Sets the value of the expireIn property.
+     * 
+     */
+    public void setExpireIn(int value) {
+        this.expireIn = value;
     }
 
 }

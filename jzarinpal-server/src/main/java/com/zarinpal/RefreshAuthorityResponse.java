@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="Status" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="RefID" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,16 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "status",
-    "refID"
+    "status"
 })
-@XmlRootElement(name = "PaymentVerificationResponse")
-public class PaymentVerificationResponse {
+@XmlRootElement(name = "RefreshAuthorityResponse")
+public class RefreshAuthorityResponse {
 
     @XmlElement(name = "Status")
     protected int status;
-    @XmlElement(name = "RefID")
-    protected long refID;
 
     /**
      * Gets the value of the status property.
@@ -55,22 +51,6 @@ public class PaymentVerificationResponse {
      */
     public void setStatus(int value) {
         this.status = value;
-    }
-
-    /**
-     * Gets the value of the refID property.
-     * 
-     */
-    public long getRefID() {
-        return refID;
-    }
-
-    /**
-     * Sets the value of the refID property.
-     * 
-     */
-    public void setRefID(long value) {
-        this.refID = value;
     }
 
 }

@@ -57,7 +57,9 @@ public class PaymentResourceIntegrationTest extends ResourceTestCaseBase {
 			System.out.println(f("##############Temporary log######### refId[%s]", refId));
 			assertTrue("RefId should be still zero", new Long(0).equals(refId));
 		} else {
-			assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
+//			assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
+			// used to be BAD_REQUEST but is GONE now
+			assertEquals(Status.GONE.getStatusCode(), response.getStatus());
 			assertEquals("RefId should be zero", new Long(0), response.readEntity(Long.class));
 		}
 

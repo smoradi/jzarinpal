@@ -51,7 +51,9 @@ public class PaymentClientIntegrationTest extends ClientTestCaseBase {
 				// It happens also production mode
 			} else {
 				assertTrue("We should see exception in development mode", BuildProps.isDevServer);
-				assertEquals("Status code shold be 400 is dev mode", Status.BAD_REQUEST.getStatusCode(), e.getStatusCode());
+//				assertEquals("Status code shold be 400 is dev mode", Status.BAD_REQUEST.getStatusCode(), e.getStatusCode());
+				// used to be BAD_REQUEST but is GONE now
+				assertEquals("Status code shold be 400 is dev mode", Status.GONE.getStatusCode(), e.getStatusCode());
 			}
 		}
 	}

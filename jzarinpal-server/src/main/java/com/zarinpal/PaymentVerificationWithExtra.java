@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -47,11 +47,11 @@ public class PaymentVerificationWithExtra {
 
     /**
      * Gets the value of the merchantID property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getMerchantID() {
         return merchantID;
@@ -59,11 +59,11 @@ public class PaymentVerificationWithExtra {
 
     /**
      * Sets the value of the merchantID property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setMerchantID(String value) {
         this.merchantID = value;
@@ -71,11 +71,11 @@ public class PaymentVerificationWithExtra {
 
     /**
      * Gets the value of the authority property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getAuthority() {
         return authority;
@@ -83,11 +83,11 @@ public class PaymentVerificationWithExtra {
 
     /**
      * Sets the value of the authority property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setAuthority(String value) {
         this.authority = value;
@@ -95,7 +95,7 @@ public class PaymentVerificationWithExtra {
 
     /**
      * Gets the value of the amount property.
-     *
+     * 
      */
     public int getAmount() {
         return amount;
@@ -103,7 +103,7 @@ public class PaymentVerificationWithExtra {
 
     /**
      * Sets the value of the amount property.
-     *
+     * 
      */
     public void setAmount(int value) {
         this.amount = value;

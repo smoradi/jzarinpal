@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="Status" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="RefID" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="Authorities" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,15 +31,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "status",
-    "refID"
+    "authorities"
 })
-@XmlRootElement(name = "PaymentVerificationResponse")
-public class PaymentVerificationResponse {
+@XmlRootElement(name = "GetUnverifiedTransactionsResponse")
+public class GetUnverifiedTransactionsResponse {
 
     @XmlElement(name = "Status")
     protected int status;
-    @XmlElement(name = "RefID")
-    protected long refID;
+    @XmlElement(name = "Authorities", required = true)
+    protected String authorities;
 
     /**
      * Gets the value of the status property.
@@ -58,19 +58,27 @@ public class PaymentVerificationResponse {
     }
 
     /**
-     * Gets the value of the refID property.
+     * Gets the value of the authorities property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getRefID() {
-        return refID;
+    public String getAuthorities() {
+        return authorities;
     }
 
     /**
-     * Sets the value of the refID property.
+     * Sets the value of the authorities property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setRefID(long value) {
-        this.refID = value;
+    public void setAuthorities(String value) {
+        this.authorities = value;
     }
 
 }
